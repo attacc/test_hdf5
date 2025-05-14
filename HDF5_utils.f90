@@ -53,7 +53,7 @@
 !>    creating a dataset. This would make the hdf5 file more portable.
 !>
 module HDF5_utils
-  use kinds, only: dp 
+  use pars,           ONLY:SP
   use hdf5
   implicit none
 
@@ -220,8 +220,8 @@ module HDF5_utils
   end interface hdf_read_attribute
 
   ! precision for this file
-  integer, parameter :: sp = kind(1.0)     ! single precision
-  !integer, parameter :: dp = kind(1.0d0)   ! double precision
+  ! integer, parameter :: sp = kind(1.0)     ! single precision
+  ! integer, parameter :: dp = kind(1.0d0)   ! double precision
 
   !
   logical :: hdf_print_messages = .false.
@@ -590,7 +590,7 @@ contains
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
     integer, intent(in) :: offset(:)            ! position within dataset
-    real(dp), intent(in) :: vector(:)           ! data to be written
+    real(SP), intent(in) :: vector(:)           ! data to be written
 
     integer(HID_T) :: dset_id, dspace_id, mspace_id
     integer :: rank
@@ -730,7 +730,7 @@ contains
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
     integer, intent(in) :: offset(:)            ! position within dataset
-    real(dp), intent(out) :: vector(:)          ! data to be written
+    real(SP), intent(out) :: vector(:)          ! data to be written
 
     integer(HID_T) :: dset_id, dspace_id, mspace_id
     integer :: rank
@@ -911,7 +911,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(in) :: data                ! data to be written
+    real(SP), intent(in) :: data                ! data to be written
 
     integer(SIZE_T) :: dims(1)
     integer(HID_T) :: dset_id, dspace_id
@@ -949,7 +949,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(in) :: data(:)             ! data to be written
+    real(SP), intent(in) :: data(:)             ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(1)
@@ -989,7 +989,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(in) :: data(:,:)           ! data to be written
+    real(SP), intent(in) :: data(:,:)           ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(2)
@@ -1029,7 +1029,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(in) :: data(:,:,:)         ! data to be written
+    real(SP), intent(in) :: data(:,:,:)         ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(3)
@@ -1069,7 +1069,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(in) :: data(:,:,:,:)       ! data to be written
+    real(SP), intent(in) :: data(:,:,:,:)       ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(4)
@@ -1109,7 +1109,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(in) :: data(:,:,:,:,:)     ! data to be written
+    real(SP), intent(in) :: data(:,:,:,:,:)     ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(5)
@@ -1149,7 +1149,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(in) :: data(:,:,:,:,:,:)   ! data to be written
+    real(SP), intent(in) :: data(:,:,:,:,:,:)   ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(6)
@@ -1722,7 +1722,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(out) :: data               ! data to be written
+    real(SP), intent(out) :: data               ! data to be written
 
 
     integer(SIZE_T) :: dims(1)
@@ -1755,7 +1755,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(out) :: data(:)            ! data to be written
+    real(SP), intent(out) :: data(:)            ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(1)
@@ -1789,7 +1789,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(out) :: data(:,:)          ! data to be written
+    real(SP), intent(out) :: data(:,:)          ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(2)
@@ -1823,7 +1823,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(out) :: data(:,:,:)        ! data to be written
+    real(SP), intent(out) :: data(:,:,:)        ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(3)
@@ -1857,7 +1857,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(out) :: data(:,:,:,:)      ! data to be written
+    real(SP), intent(out) :: data(:,:,:,:)      ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(4)
@@ -1891,7 +1891,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(out) :: data(:,:,:,:,:)    ! data to be written
+    real(SP), intent(out) :: data(:,:,:,:,:)    ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(5)
@@ -1925,7 +1925,7 @@ contains
 
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: dset_name   ! name of dataset
-    real(dp), intent(out) :: data(:,:,:,:,:,:)  ! data to be written
+    real(SP), intent(out) :: data(:,:,:,:,:,:)  ! data to be written
 
     integer :: rank
     integer(SIZE_T) :: dims(6)
@@ -1966,7 +1966,7 @@ contains
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: obj_name    ! object name attribute will be attached to (if "" use loc_id)
     character(len=*), intent(in) :: attr_name   ! name of attribute
-    real(dp), intent(in) :: data                ! data to write to attribute
+    real(SP), intent(in) :: data                ! data to write to attribute
 
     !integer :: rank
     integer(SIZE_T) :: dims(1)
@@ -2014,7 +2014,7 @@ contains
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: obj_name    ! object name attribute will be attached to (if "" use loc_id)
     character(len=*), intent(in) :: attr_name   ! name of attribute
-    real(dp), intent(in) :: data(:)             ! data to write to attribute
+    real(SP), intent(in) :: data(:)             ! data to write to attribute
 
     integer :: rank
     integer(SIZE_T) :: dims(1)
@@ -2216,7 +2216,7 @@ contains
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: obj_name    ! object name attribute will be attached to (if "" use loc_id)
     character(len=*), intent(in) :: attr_name   ! name of attribute
-    real(dp), intent(out) :: data               ! data to write to attribute
+    real(SP), intent(out) :: data               ! data to write to attribute
 
     integer(SIZE_T) :: dims(1)
     integer(HID_T) :: obj_id, attr_id
@@ -2256,7 +2256,7 @@ contains
     integer(HID_T), intent(in) :: loc_id        ! local id in file
     character(len=*), intent(in) :: obj_name    ! object name attribute will be attached to (if "" use loc_id)
     character(len=*), intent(in) :: attr_name   ! name of attribute
-    real(dp), intent(out) :: data(:)            ! data to write to attribute
+    real(SP), intent(out) :: data(:)            ! data to write to attribute
 
     integer :: rank
     integer(SIZE_T) :: dims(1)
